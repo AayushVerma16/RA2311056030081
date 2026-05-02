@@ -13,7 +13,7 @@ public class VehicleScheduler {
         HttpClient client = HttpClient.newHttpClient();
 
         // 🔥 STEP 1: ADD YOUR TOKEN HERE
-        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiJhdjE3NDlAZ21haWwuY29tIiwiZXhwIjoxNzc3NzAxMDA1LCJpYXQiOjE3Nzc3MDAxMDUsImlzcyI6IkFmZm9yZCBNZWRpY2FsIFRlY2hub2xvZ2llcyBQcml2YXRlIExpbWl0ZWQiLCJqdGkiOiJjM2JmZDRjNi04ZTVhLTQ5YzEtYjkwOS04MTRkOTk4OTA5NWMiLCJsb2NhbGUiOiJlbi1JTiIsIm5hbWUiOiJhYXl1c2ggdmVybWEiLCJzdWIiOiJlYWUxZmJkMS1hMTI0LTRjN2ItYjRkZS04YTg2YzZhM2M5NjIifSwiZW1haWwiOiJhdjE3NDlAZ21haWwuY29tIiwibmFtZSI6ImFheXVzaCB2ZXJtYSIsInJvbGxObyI6InJhMjMxMTA1NjAzMDA4MSIsImFjY2Vzc0NvZGUiOiJRa2JweEgiLCJjbGllbnRJRCI6ImVhZTFmYmQxLWExMjQtNGM3Yi1iNGRlLThhODZjNmEzYzk2MiIsImNsaWVudFNlY3JldCI6IkN5WkdRZGZYeXlHanhjUWEifQ.pOGMZgSBlj5JzE5Roct3FFXOehJjofGxVIyU1rBejMo";
+        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiJhdjE3NDlAZ21haWwuY29tIiwiZXhwIjoxNzc3NzAyOTkyLCJpYXQiOjE3Nzc3MDIwOTIsImlzcyI6IkFmZm9yZCBNZWRpY2FsIFRlY2hub2xvZ2llcyBQcml2YXRlIExpbWl0ZWQiLCJqdGkiOiI0NjdkMDk5Ni1iNWRmLTQ2YjMtOTQ3My0wNDBiYjczYTkxMTEiLCJsb2NhbGUiOiJlbi1JTiIsIm5hbWUiOiJhYXl1c2ggdmVybWEiLCJzdWIiOiJlYWUxZmJkMS1hMTI0LTRjN2ItYjRkZS04YTg2YzZhM2M5NjIifSwiZW1haWwiOiJhdjE3NDlAZ21haWwuY29tIiwibmFtZSI6ImFheXVzaCB2ZXJtYSIsInJvbGxObyI6InJhMjMxMTA1NjAzMDA4MSIsImFjY2Vzc0NvZGUiOiJRa2JweEgiLCJjbGllbnRJRCI6ImVhZTFmYmQxLWExMjQtNGM3Yi1iNGRlLThhODZjNmEzYzk2MiIsImNsaWVudFNlY3JldCI6IkN5WkdRZGZYeXlHanhjUWEifQ.5pjtnTZYkvzgQHfOU3On1CMYswx641DhSsF0GVfWZjs";
 
         String depotUrl = "http://20.207.122.201/evaluation-service/depots";
         String vehicleUrl = "http://20.207.122.201/evaluation-service/vehicles";
@@ -32,18 +32,24 @@ public class VehicleScheduler {
                 .build();
 
         HttpResponse<String> depotResponse =
-                client.send(depotRequest, HttpResponse.BodyHandlers.ofString());
+        client.send(depotRequest, HttpResponse.BodyHandlers.ofString());
 
-        HttpResponse<String> vehicleResponse =
-                client.send(vehicleRequest, HttpResponse.BodyHandlers.ofString());
+HttpResponse<String> vehicleResponse =
+        client.send(vehicleRequest, HttpResponse.BodyHandlers.ofString());
 
-        // 🔥 STEP 3: PARSE JSON
-        JSONObject depotJson = new JSONObject(depotResponse.body());
-        JSONArray depots = depotJson.getJSONArray("depots");
 
-        JSONObject vehicleJson = new JSONObject(vehicleResponse.body());
-        JSONArray vehicles = vehicleJson.getJSONArray("vehicles");
+System.out.println("DEPOT RESPONSE:");
+System.out.println(depotResponse.body());
 
+System.out.println("\nVEHICLE RESPONSE:");
+System.out.println(vehicleResponse.body());
+        // 🔥 STEP 3: PARSE JSON (FINAL FIX)
+
+JSONObject depotJson = new JSONObject(depotResponse.body());
+JSONArray depots = depotJson.getJSONArray("depots");
+
+JSONObject vehicleJson = new JSONObject(vehicleResponse.body());
+JSONArray vehicles = vehicleJson.getJSONArray("vehicles");
         // 🔥 STEP 4: CONVERT VEHICLES TO LIST
         List<Map<String, Object>> vehicleList = new ArrayList<>();
 
