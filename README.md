@@ -137,6 +137,18 @@ vehicle-notification-assignment/
 
 ---
 
+### Output Screenshot
+
+<img width="1541" height="1032" alt="image" src="https://github.com/user-attachments/assets/7de984a7-2536-466e-b5f2-c2c5c1773b05" />
+
+
+
+
+
+
+---
+
+
 ## Learning Outcomes
 
 * Practical experience with authenticated APIs
