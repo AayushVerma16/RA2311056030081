@@ -66,7 +66,17 @@ Max Impact: 133
 
 ### Output Screenshot
 
-![Output](vehicle_scheduler/output.png)
+<img width="1920" height="1080" alt="Screenshot 2026-05-02 114609" src="https://github.com/user-attachments/assets/a9c9cfd8-caa1-44f1-83e1-997f3a46d2b8" />
+<br>
+<img width="1920" height="1080" alt="Screenshot 2026-05-02 114619" src="https://github.com/user-attachments/assets/5bdcd34a-0c42-4772-a7ac-39f242d7bca9" />
+<br>
+<img width="1920" height="1080" alt="Screenshot 2026-05-02 114627" src="https://github.com/user-attachments/assets/0be0d4f6-ccd3-4d27-9829-a85eda7220d3" />
+<br>
+<img width="1920" height="1080" alt="Screenshot 2026-05-02 114639" src="https://github.com/user-attachments/assets/59c40753-8184-4fec-971d-4594ca2c1364" />
+
+
+
+
 
 ---
 
